@@ -1,0 +1,422 @@
+/* Wider than 840px keeps the original navigation.
+   Wider than 700px keeps the original type, spacing, and card placement.
+   A narrow photo column switches its card into the document flow so the
+   text cannot be clipped, including on a laptop where two columns are tight. */
+
+.media-panel {
+  container-type: inline-size;
+}
+
+@container (max-width: 620px) {
+  .media-panel {
+    min-height: 0 !important;
+    display: flex !important;
+    align-items: center;
+    padding: 20px 12px !important;
+  }
+
+  .glass-card {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    height: auto !important;
+    margin: 16px !important;
+  }
+
+  .glass-card > div {
+    height: auto !important;
+    overflow: visible !important;
+  }
+}
+
+.site-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.menu-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 11px 16px;
+  border: 0;
+  background: #000;
+  color: #fff;
+  cursor: pointer;
+  font: 600 16px/1 "Inter", sans-serif;
+  letter-spacing: 0.2px;
+}
+
+.site-menu {
+  display: none;
+  background: #fff;
+  border-top: 1px dashed #e3e3e3;
+}
+
+.site-menu.is-open {
+  display: block;
+}
+
+.site-menu a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 56px;
+  padding: 0 24px;
+  border-bottom: 1px dashed #e3e3e3;
+  font: 400 18px/1 "Inter", sans-serif;
+}
+
+.site-menu a:hover {
+  color: #1e4dff;
+}
+
+body.nav-open {
+  overflow: hidden;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid #1e4dff;
+  outline-offset: 3px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  a:hover {
+    color: #1e4dff;
+  }
+}
+
+@media (max-width: 840px) {
+  .site-nav {
+    display: none !important;
+  }
+
+  .menu-toggle {
+    display: inline-flex;
+  }
+
+  .site-header-bar {
+    height: 76px !important;
+    gap: 16px !important;
+    padding: 0 max(20px, env(safe-area-inset-right)) 0 max(20px, env(safe-area-inset-left)) !important;
+  }
+}
+
+@media (max-width: 700px) {
+  html,
+  body {
+    overflow-x: clip;
+  }
+
+  .top-banner {
+    padding-left: max(16px, env(safe-area-inset-left)) !important;
+    padding-right: max(16px, env(safe-area-inset-right)) !important;
+  }
+
+  .site-header-bar {
+    height: 68px !important;
+    padding: 0 max(16px, env(safe-area-inset-right)) 0 max(16px, env(safe-area-inset-left)) !important;
+  }
+
+  .site-logo {
+    height: 32px !important;
+  }
+
+  .menu-toggle,
+  .site-header-actions a {
+    padding: 10px 12px !important;
+  }
+
+  [data-screen-label="Hero"],
+  [data-screen-label="Capabilities"],
+  [data-screen-label="Timeline"],
+  [data-screen-label="Partners"] {
+    padding-left: max(20px, env(safe-area-inset-left)) !important;
+    padding-right: max(20px, env(safe-area-inset-right)) !important;
+  }
+
+  [data-screen-label="Capabilities"],
+  [data-screen-label="Timeline"],
+  [data-screen-label="Partners"] {
+    padding-top: 72px !important;
+    padding-bottom: 72px !important;
+  }
+
+  [data-screen-label="Problem"] > div,
+  [data-screen-label="Outcomes"] > div,
+  [data-screen-label="AI Services"] > div,
+  [data-screen-label="Success Stories"] > div,
+  [data-screen-label="ROI Calculator"] > div {
+    padding-top: 72px !important;
+    padding-bottom: 72px !important;
+    padding-left: max(20px, env(safe-area-inset-left)) !important;
+    padding-right: max(20px, env(safe-area-inset-right)) !important;
+  }
+
+  [data-screen-label="Capabilities"] {
+    padding-bottom: 0 !important;
+  }
+
+  [data-screen-label="Capabilities"] > div:last-child {
+    height: 72px !important;
+  }
+
+  h1 {
+    font-size: 40px !important;
+    line-height: 1.05 !important;
+    letter-spacing: -1.5px !important;
+  }
+
+  h2 {
+    font-size: 34px !important;
+    line-height: 1.1 !important;
+    letter-spacing: -1px !important;
+  }
+
+  h3 {
+    font-size: 26px !important;
+    line-height: 1.2 !important;
+    letter-spacing: -0.6px !important;
+  }
+
+  .type-card {
+    font-size: 24px !important;
+    line-height: 1.2 !important;
+  }
+
+  .type-story {
+    font-size: 28px !important;
+    line-height: 1.15 !important;
+    letter-spacing: -0.6px !important;
+  }
+
+  .type-stat {
+    font-size: 40px !important;
+    line-height: 1.05 !important;
+  }
+
+  .type-stat-md {
+    font-size: 36px !important;
+  }
+
+  .type-stat-xl {
+    font-size: 52px !important;
+    letter-spacing: -1.5px !important;
+  }
+
+  .hero-intro {
+    padding-top: 56px !important;
+  }
+
+  .hero-stage {
+    margin-top: 48px !important;
+    gap: 16px !important;
+  }
+
+  .hero-logos {
+    margin-left: -20px !important;
+    margin-right: -20px !important;
+    padding: 28px 20px 36px !important;
+    justify-content: center !important;
+    font-size: 16px !important;
+    gap: 14px 22px !important;
+  }
+
+  .hero-intro a {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .media-panel {
+    min-height: 0 !important;
+    display: flex !important;
+    align-items: center;
+    padding: 16px 12px !important;
+  }
+
+  .glass-card {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    height: auto !important;
+    margin: 0 !important;
+  }
+
+  .glass-card > div {
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  .glass-card [style*="330px"],
+  .glass-card [style*="326px"] {
+    width: auto !important;
+    max-width: 100% !important;
+  }
+
+  .glass-card [style*="height: 44px"] {
+    height: auto !important;
+    min-height: 44px;
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+    font-size: 13px !important;
+    white-space: nowrap;
+  }
+
+  .story-tabs {
+    margin-top: 36px !important;
+  }
+
+  .story-tabs button {
+    height: auto !important;
+    min-height: 52px;
+    padding: 8px 6px !important;
+    font-size: 13px !important;
+    line-height: 1.15 !important;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .story-panel {
+    min-height: 0 !important;
+  }
+
+  .story-panel > div {
+    border-right: 0 !important;
+  }
+
+  [data-screen-label="Problem"] [style*="min-height: 450px"] {
+    min-height: 0 !important;
+    padding: 28px 22px !important;
+    border-right: 0 !important;
+    border-bottom: 1px solid #222 !important;
+  }
+
+  [data-screen-label="Problem"] [style*="min-height: 450px"]:last-child {
+    border-bottom: 0 !important;
+  }
+
+  [data-screen-label="Timeline"] [style*="min-height: 330px"] {
+    min-height: 0 !important;
+    padding: 24px 20px !important;
+    gap: 24px !important;
+  }
+
+  [data-screen-label="Partners"] [style*="min-height: 340px"] {
+    min-height: 0 !important;
+    padding: 24px 20px !important;
+    border-right: 0 !important;
+    border-bottom: 1px solid #e6e6e6 !important;
+  }
+
+  [data-screen-label="Partners"] [style*="min-height: 340px"]:last-child {
+    border-bottom: 0 !important;
+  }
+
+  [data-screen-label="Outcomes"] [style*="55px 60px"] {
+    padding: 28px 20px !important;
+  }
+
+  [data-screen-label="Outcomes"] [style*="margin-top: 130px"] {
+    margin-top: 36px !important;
+  }
+
+  [data-screen-label="AI Services"] [style*="padding: 40px"] {
+    padding: 28px 20px !important;
+  }
+
+  [data-screen-label="AI Services"] [style*="height: 340px"],
+  [data-screen-label="AI Services"] [style*="height: 385px"] {
+    height: auto !important;
+  }
+
+  [data-screen-label="AI Services"] [style*="padding: 14px 48px"] {
+    padding: 14px 16px !important;
+    text-align: center;
+  }
+
+  [data-screen-label="AI Services"] [style*="width: 242px"] {
+    width: min(242px, 100%) !important;
+  }
+
+  [data-screen-label="AI Services"] [style*="margin: 0px -28px"],
+  [data-screen-label="AI Services"] [style*="margin: 0 -28px"] {
+    margin: 0 !important;
+  }
+
+  [data-screen-label="Capabilities"] [style*="gap: 60px"] {
+    gap: 36px !important;
+  }
+
+  [data-screen-label="Capabilities"] [style*="margin-top: 175px"],
+  [data-screen-label="Capabilities"] [style*="margin-top: 180px"] {
+    margin-top: 64px !important;
+  }
+
+  [data-screen-label="ROI Calculator"] [style*="padding: 40px"] {
+    padding: 24px 18px !important;
+    gap: 28px !important;
+  }
+
+  [data-screen-label="ROI Calculator"] [style*="padding: 36px 32px"] {
+    padding: 24px 18px !important;
+  }
+
+  [data-screen-label="CTA + Footer"] [style*="150px 37px"] {
+    padding: 72px 20px 64px !important;
+  }
+
+  [data-screen-label="CTA + Footer"] [style*="100px 37px"] {
+    padding: 48px 20px 56px !important;
+  }
+
+  [data-screen-label="CTA + Footer"] [style*="80px 37px"] {
+    padding: 40px 20px 28px !important;
+  }
+
+  [data-screen-label="CTA + Footer"] [style*="gap: 34px"] {
+    gap: 14px !important;
+  }
+
+  .chip-row {
+    flex-wrap: wrap !important;
+    white-space: normal !important;
+    margin-left: 0 !important;
+    padding: 0 20px;
+  }
+
+  input[type="range"] {
+    height: 32px;
+    margin-top: 8px !important;
+  }
+}
+
+@media (max-width: 380px) {
+  h1 {
+    font-size: 34px !important;
+  }
+
+  h2 {
+    font-size: 30px !important;
+  }
+
+  .hero-logos {
+    font-size: 14px !important;
+  }
+
+  .story-tabs button {
+    font-size: 12px !important;
+  }
+}
