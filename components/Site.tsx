@@ -11,11 +11,11 @@ const TEAMS = [
   {
     tab: "Delivery leadership",
     title: "CxO, client delivery and management",
-    count: "3",
+    count: "4",
     unit: "Delivery leaders",
     kicker: "DELIVERY LEADERSHIP",
     note: "The leaders who own your roadmap, your delivery and your account.",
-    people: ["Darren Augi", "Vincent Nocella", "Nigel Harrison"],
+    people: ["Darren Augi", "Vincent Nocella", "Nigel Harrison", "Aviral Bhutani"],
   },
   {
     tab: "Operations and engineering",
@@ -34,6 +34,15 @@ const TEAMS = [
     kicker: "TECHNICAL OPERATIONS",
     note: "10 dedicated people supporting managed IT, security, leadership, AI and technical services.",
     people: [] as string[],
+  },
+  {
+    tab: "WeLaunch",
+    title: "WeLaunch",
+    count: "1",
+    unit: "Partner",
+    kicker: "PARTNER",
+    note: "WeLaunch, led by Aviral Bhutani.",
+    people: ["Aviral Bhutani"],
   },
 ] as const;
 
@@ -160,7 +169,10 @@ export function Site() {
         title: current.title,
         kicker: current.kicker,
         note: current.note,
-        people: current.people.map((name) => ({ name, ini: initials(name) })),
+        people: current.people.map((entry) => {
+          const [name, role] = entry.split(" — ");
+          return { name, role: role ?? "", ini: initials(name) };
+        }),
       }}
     />
   );

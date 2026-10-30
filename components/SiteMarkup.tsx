@@ -26,7 +26,7 @@ type TeamTab = {
   select: () => void;
 };
 
-type Person = { name: string; ini: string };
+type Person = { name: string; ini: string; role: string };
 
 type Team = {
   count: string;
@@ -2298,7 +2298,7 @@ export function SiteMarkup({
               {"⇢ MEET THE TEAM"}
             </a>
           </div>
-          <div className="team-tabs" style={{marginTop: "clamp(34px,5.21vw,75px)", display: "grid", gridTemplateColumns: "repeat(3,minmax(170px,1fr))", overflowX: "auto", border: "1px solid #1e1e1e", borderBottom: "none"}}>
+          <div className="team-tabs" style={{marginTop: "clamp(34px,5.21vw,75px)", display: "grid", gridTemplateColumns: "repeat(4,minmax(170px,1fr))", overflowX: "auto", border: "1px solid #1e1e1e", borderBottom: "none"}}>
             {teamTabs.map((tb, i) => (
               <Fragment key={tb.tab}>
                 <button style={{background: "none", border: "none", borderRight: "1px solid #1e1e1e", borderBottom: "3px solid " + tb.line, minHeight: "68px", padding: "0 16px", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", opacity: tb.opacity, color: "#fff", font: "500 17px 'Inter',sans-serif"}} onClick={tb.select}>
@@ -2322,13 +2322,20 @@ export function SiteMarkup({
               </div>
               <div>
                 {team.people.map((p, i) => (
-                  <Fragment key={p.name}>
+                  <Fragment key={`${p.name}-${i}`}>
                     <div style={{display: "flex", alignItems: "center", gap: "16px", padding: "16px 0", borderTop: "1px solid #1e1e1e"}}>
                       <span style={{width: "44px", height: "44px", borderRadius: "50%", background: "#121626", color: "#9db6ff", display: "flex", alignItems: "center", justifyContent: "center", font: "500 15px 'Inter'", flexShrink: "0"}}>
                         {p.ini}
                       </span>
-                      <span style={{font: "500 22px 'Inter',sans-serif", letterSpacing: "-0.4px"}}>
-                        {p.name}
+                      <span style={{display: "flex", flexDirection: "column", gap: "4px"}}>
+                        <span style={{font: "500 22px 'Inter',sans-serif", letterSpacing: "-0.4px"}}>
+                          {p.name}
+                        </span>
+                        {p.role ? (
+                          <span style={{font: "400 15px 'Inter',sans-serif", color: "#9db6ff"}}>
+                            {p.role}
+                          </span>
+                        ) : null}
                       </span>
                     </div>
                   </Fragment>
