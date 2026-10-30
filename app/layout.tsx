@@ -5,7 +5,6 @@ import "@fontsource/inter/latin-500.css";
 import "@fontsource/inter/latin-600.css";
 import "@fontsource/inter/latin-700.css";
 import "./globals.css";
-import "./responsive.css";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -14,9 +13,9 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "ITILITI AI",
+  title: "iTILITi",
   description:
-    "Enterprise AI for alternative investment. Research, due diligence, portfolio analytics, and regulatory compliance.",
+    "Everything a growing company needs from technology: IT operations, security, leadership, data and AI. Run by senior people who know your name, on an AI platform built for how your business works.",
 };
 
 export default function RootLayout({
